@@ -48,6 +48,7 @@ jobs:
         id: init
         run: |
           echo "$GOOGLE_APPLICATION_CREDENTIALS"
+          cat "$GOOGLE_APPLICATION_CREDENTIALS"
           terraform init
 
       - name: terraform workspace
