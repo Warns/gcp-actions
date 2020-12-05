@@ -48,7 +48,8 @@ jobs:
 
       - name: terraform workspace
         id: workspace
-        run: terraform workspace create dev-tominaga
+        run: |
+          terraform workspace new dev-tominaga
 
       - name: terraform plan
         id: plan
