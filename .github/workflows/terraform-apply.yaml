@@ -49,6 +49,9 @@ jobs:
         id: init
         run: terraform init
 
+      - name: terraform workspace show
+        run: terraform workspace show
+
       - name: terraform apply
         id: apply
         run: terraform apply -auto-approve

@@ -54,6 +54,9 @@ jobs:
         id: init
         run: terraform init
 
+      - name: terraform workspace show
+        run: terraform workspace show
+
       - name: terraform plan
         id: plan
         run: terraform plan
