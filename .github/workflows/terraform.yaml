@@ -31,13 +31,13 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: create credentials
-        run: echo "$GOOGLE_APPPLICATION_CREDENTIALS" > credentials.json
+        run: echo "$GOOGLE_APPLICATION_CREDENTIALS" > credentials.json
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPPLICATION_CREDENTIALS }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
       - name: export GOOGLE_APPLICATION_CREDENTIALS
         run: |
-          echo "GOOGLE_APPPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
+          echo "GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
 
       - name: terraform fmt
         id: fmt
@@ -47,7 +47,7 @@ jobs:
       - name: terraform init
         id: init
         run: |
-          echo "$GOOGLE_APPPLICATION_CREDENTIALS"
+          echo "$GOOGLE_APPLICATION_CREDENTIALS"
           terraform init
 
       - name: terraform workspace
