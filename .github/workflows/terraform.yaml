@@ -35,8 +35,10 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPPLICATION_CREDENTIALS }}
 
-      - name: ls
-        run: ls -l
+      - name: export GOOGLE_APPLICATION_CREDENTIALS
+        run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=`pwd/credentials.json`
+          echo "$GOOGLE_APPPLICATION_CREDENTIALS"
 
       - name: terraform fmt
         id: fmt
