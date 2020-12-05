@@ -42,13 +42,16 @@ jobs:
         run: terraform fmt -check
         continue-on-error: true
 
+      - name: terraform workspace
+        id: workspace
+        run: |
+          terraform workspace new dev-tominaga
+          terraform workspace select dev-tominaga
+        continue-on-error: true
+
       - name: terraform init
         id: init
         run: terraform init
-
-      - name: terraform workspace
-        id: workspace
-        run: terraform workspace create dev-tominaga
 
       - name: terraform plan
         id: plan
