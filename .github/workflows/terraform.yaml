@@ -34,7 +34,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: create credentials
-        run: echo ${{ secrets.GOOGLE_APPPLICATION_CREDENTIALS }} > credentials.json
+        run: echo "$GOOGLE_APPPLICATION_CREDENTIALS" > credentials.json
 
       - name: ls
         run: ls -l
