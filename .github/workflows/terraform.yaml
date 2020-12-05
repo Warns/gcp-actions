@@ -35,6 +35,9 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
+      - name: cat
+        run: cat `pwd`/credentials.json
+
       - name: export GOOGLE_APPLICATION_CREDENTIALS
         run: |
           echo "GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
@@ -48,7 +51,6 @@ jobs:
         id: init
         run: |
           echo "$GOOGLE_APPLICATION_CREDENTIALS"
-          cat "$GOOGLE_APPLICATION_CREDENTIALS"
           terraform init
 
       - name: terraform workspace
