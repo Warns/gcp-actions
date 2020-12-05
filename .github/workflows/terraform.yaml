@@ -33,6 +33,12 @@ jobs:
           terraform_version: 0.14.0
 
       # Runs a single command using the runners shell
+      - name: create credentials
+        run: echo ${{ secrets.GOOGLE_APPPLICATION_CREDENTIALS }} > credentials.json
+
+      - name: ls
+        run: ls -l
+
       - name: terraform fmt
         id: fmt
         run: terraform fmt -check
