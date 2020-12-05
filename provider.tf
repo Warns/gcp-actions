@@ -1,6 +1,5 @@
 provider "google" {
   project     = terraform.workspace
-  credentials = "credentials.json"
 }
 
 terraform {
