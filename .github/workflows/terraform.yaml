@@ -30,28 +30,23 @@ jobs:
           terraform_version: 0.14.0
 
       # Runs a single command using the runners shell
-      # - name: create credentials
-      #   run: echo "$GOOGLE_APPLICATION_CREDENTIALS" > credentials.json
-      #   env:
-      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      - name: create credentials
+        run: echo "$GOOGLE_APPLICATION_CREDENTIALS" > credentials.json
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
-      # - name: cat
-      #   run: cat `pwd`/credentials.json
+      - name: export GOOGLE_APPLICATION_CREDENTIALS
+        run: |
+          echo "GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
 
-      # - name: export GOOGLE_APPLICATION_CREDENTIALS
-      #   run: |
-      #     echo "GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
-
-      # - name: terraform fmt
-      #   id: fmt
-      #   run: terraform fmt -check
-      #   continue-on-error: true
+      - name: terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
 
       - name: terraform init
         id: init
         run: terraform init
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
       - name: terraform workspace
         id: workspace
