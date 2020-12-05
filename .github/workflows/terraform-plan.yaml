@@ -43,12 +43,10 @@ jobs:
         continue-on-error: true
 
       - name: terraform workspace new
-        id: workspace
         run: terraform workspace new dev-tominaga
         continue-on-error: true
 
       - name: terraform workspace select
-        id: workspace
         run: terraform workspace select dev-tominaga
         continue-on-error: true
 
