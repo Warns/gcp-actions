@@ -4,7 +4,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket  = "dev-tominaga"
-    prefix  = "terraform/state"
+    bucket = "dev-tominaga"
+    prefix = "terraform/state"
   }
 }
