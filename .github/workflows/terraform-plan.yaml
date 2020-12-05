@@ -43,7 +43,6 @@ jobs:
         continue-on-error: true
 
       - name: terraform init
-        id: init
         run: terraform init
 
       - name: terraform workspace new

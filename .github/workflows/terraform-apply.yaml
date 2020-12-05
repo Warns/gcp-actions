@@ -37,6 +37,9 @@ jobs:
         run: |
           echo "GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
 
+      - name: terraform init
+        run: terraform init
+
       - name: terraform workspace new
         run: terraform workspace new dev-tominaga
         continue-on-error: true
@@ -46,7 +49,6 @@ jobs:
         continue-on-error: true
 
       - name: terraform init
-        id: init
         run: terraform init
 
       - name: terraform workspace show
