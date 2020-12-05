@@ -37,7 +37,7 @@ jobs:
         run: |
           echo "GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
 
-      - name: terraform workspace
+      - name: terraform workspace new
         id: workspace
         run: |
           terraform workspace new dev-tominaga
