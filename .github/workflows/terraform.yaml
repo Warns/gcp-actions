@@ -37,8 +37,8 @@ jobs:
 
       - name: export GOOGLE_APPLICATION_CREDENTIALS
         run: |
-          export GOOGLE_APPLICATION_CREDENTIALS=`pwd`/credentials.json
-          echo "$GOOGLE_APPPLICATION_CREDENTIALS"
+          echo "GOOGLE_APPPLICATION_CREDENTIALS=`pwd`/credentials.json" >> $GITHUB_ENV
+          pwd
 
       - name: terraform fmt
         id: fmt
